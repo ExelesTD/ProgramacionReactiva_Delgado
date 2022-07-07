@@ -1,0 +1,10 @@
+<form [formGroup]="formulario" (ngSubmit)="submit($event)">
+    <span>Nombre: </span><input  class="form-control" type="text" formControlName="nombre" required [ngClass]="{'bg-danger': formulario.get('nombre')?.touched && formulario.get('nombre')?.status == 'INVALID' }">
+    <div class="alert alert-danger" *ngIf="formulario.get('nombre')?.touched && formulario.get('nombre')?.status == 'INVALID'">(El nombre no puede quedar vacio)</div>
+    <span>Edad: </span><input class="form-control" type="number" formControlName="edad" [ngClass]="{'bg-danger': formulario.get('edad')?.touched && formulario.get('edad')?.status == 'INVALID' }">
+    <div class="alert alert-danger" *ngIf="formulario.get('edad')?.touched && formulario.get('edad')?.status == 'INVALID'">(La edad no puede quedar vacia y debe ser menor a 100)</div>
+    <span>Ocupacion: </span><input  class="form-control" type="text" formControlName="ocupacion" [ngClass]="{'bg-danger': formulario.get('ocupacion')?.touched && formulario.get('ocupacion')?.status == 'INVALID' }">
+    <div class="alert alert-danger" *ngIf="formulario.get('ocupacion')?.touched && formulario.get('ocupacion')?.status == 'INVALID'">(La ocupacion no puede quedar vacia)</div>
+    <br>
+    <button type="submit" class="btn btn-success" [disabled]="!formulario.valid">Confirmar</button>
+</form>
