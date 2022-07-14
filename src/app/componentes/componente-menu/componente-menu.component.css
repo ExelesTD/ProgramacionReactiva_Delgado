@@ -1,67 +1,19 @@
-/*Estilo del Menu */
-
-
-.navbar .nav-item:not(:last-child) {
-    margin-right: 35px;
-  }
-   
-  .dropdown-toggle::after {
-     transition: transform 0.15s linear; 
-  }
-   
-  .show.dropdown .dropdown-toggle::after {
-    transform: translateY(3px);
-  }
-
-#menu {
-    margin:auto;
-    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 600;
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
+    color: white;
 }
 
-.dropdown-menu{
-    padding: 0;
+.navbar-light .navbar-nav .nav-link{
+    color: white;
 }
 
-ul, ol {
-    list-style:none;
-}
-
-ul {
-    display: table-cell;
-}
-
-.nav > li {
-    float:left;
-}
-
-.nav li a {
+.dropdown-menu{    
     background-color:#1976d2;
-    color:#fff;
-    text-decoration:none;
-    padding:10px 12px;
-    display:block;
 }
 
-.nav li a:hover {
-    background-color:#4a8fd2;
+.dropdown-item{
+    color: white;
 }
 
-.nav li ul {
-    display:none;
-    position:absolute;
-    min-width:140px;
-}
-
-.nav li:hover > ul {
-    display:block;
-}
-
-.nav li ul li {
-    position:relative;
-}
-
-.nav li ul li ul {
-    right:-140px;
-    top:0px;
+.navbar-light .navbar-toggler{
+    color: white;
 }

@@ -9,6 +9,10 @@ import { ComponenteListaComponent } from './componentes/componente-lista/compone
 import { MiDirectivaDirective } from './directivas/mi-directiva.directive';
 import { FormularioComponent } from './componentes/formulario/formulario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modulos/material/material.module';
+import { ModalAlumnoComponent } from './componentes/modal-alumno/modal-alumno.component';
+import * as $ from 'jquery';
 
 @NgModule({
   declarations: [
@@ -18,12 +22,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ComponenteToolbarComponent,
     ComponenteListaComponent,
     MiDirectivaDirective,
-    FormularioComponent
+    FormularioComponent,
+    ModalAlumnoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

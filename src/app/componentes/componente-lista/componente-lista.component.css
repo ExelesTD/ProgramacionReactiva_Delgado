@@ -17,3 +17,8 @@ table {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+  .mat-success {
+    background-color: green;
+    color: #fff;
+}
+  

@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Forms-Delgado'`, () => {
+  it(`should have as title '1PF+Delgado'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Forms-Delgado');
+    expect(app.title).toEqual('1PF+Delgado');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Forms-Delgado app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('1PF+Delgado app is running!');
   });
 });

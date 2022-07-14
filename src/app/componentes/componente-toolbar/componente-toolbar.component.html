@@ -1,5 +1,5 @@
 <!-- Toolbar -->
-<div [ngClass]="porArriba ? 'toolbarOn' : 'toolbar'" role="banner" (mouseover)="porArriba = true" (mouseout)="porArriba = false">    
+<div class="toolbar">    
     <img
       width="40"
       alt="Angular Logo"
@@ -7,5 +7,5 @@
     />
       <app-componente-menu></app-componente-menu>
       <div class="spacer"></div>    
-      <span style="margin-right: 20px;">Proyecto de {{nombreAlumno(nombre)}} {{fecha | date}}</span>
+      <span  style="margin-right: 20px;margin-top: 16px;">Proyecto de {{nombreAlumno(nombre)}} {{fecha | date}}</span>
   </div>

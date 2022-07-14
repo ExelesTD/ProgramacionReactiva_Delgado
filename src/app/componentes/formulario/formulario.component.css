@@ -1,3 +1,13 @@
 .form-error{
     background-color: red;
 }
+
+.formularioAlumno {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .formularioAlumno-width {
+    width: 100%;
+  }

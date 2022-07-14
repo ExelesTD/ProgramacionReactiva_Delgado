@@ -21,4 +21,8 @@ export class ComponenteToolbarComponent implements OnInit {
       return variable;
   }
 
+  cambiarEstado(entrada: boolean){
+    this.porArriba = entrada;
+  }
+
 }

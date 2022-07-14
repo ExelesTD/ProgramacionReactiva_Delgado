@@ -1,26 +1,89 @@
+
+
 <div>
-    <div style="margin-right: 10px;"><p>Ingrese algun alumno nuevo: </p></div>
-    <app-formulario></app-formulario>
+    <div style="float: left;margin-right: 10px;margin-top: 7px;">
+        <p>Ingrese algun alumno nuevo: </p>
+    </div>
+    <div><button mat-mini-fab color="success" data-toggle="modal" data-target="#exampleModal" (click)="nuevoAlumno()">
+            <mat-icon>add</mat-icon>
+        </button></div>
+    <!--Modal para agregar usuario -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <app-formulario [esModificar]="esEditar" [nombreAEditar]="nombreAlumno" [edadAEditar]="edadAlumno" [ocupacionAEditar]="ocupacionAlumno" [indiceTabla]="indiceSeleccionado"></app-formulario>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Modal para agregar usuario -->
+
     <br>
-    <div style="float: left;margin-right: 10px;margin-top: 7px;"><p>Los siguientes alumnos se encuentran inscriptos al curso: </p></div>
-    <div> 
-        <button class="btn btn-outline-info" *ngIf="!mostrarAlumnos" (click)="mostrarAlumnos = true">Mostrar Alumnos</button>
-        <button class="btn btn-outline-info" *ngIf="mostrarAlumnos" (click)="mostrarAlumnos = false">Ocultar Alumnos</button>
+    <div style="float: left;margin-right: 10px;margin-top: 7px;">
+        <p>Los siguientes alumnos se encuentran inscriptos al curso: </p>
+    </div>
+    <div>
+        <button mat-mini-fab color="primary" *ngIf="!mostrarAlumnos" (click)="cambiarMostrarAlumnos(true)">
+            <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-mini-fab color="warn" *ngIf="mostrarAlumnos" (click)="cambiarMostrarAlumnos(false)">
+            <mat-icon>visibility_off</mat-icon>
+        </button>
+        <!--<button class="btn mat-mini-fab	" *ngIf="!mostrarAlumnos" (click)="cambiarMostrarAlumnos(true)">Mostrar Alumnos</button>
+        <button class="btn mat-mini-fab	" *ngIf="mostrarAlumnos" (click)="cambiarMostrarAlumnos(false)">Ocultar Alumnos</button>-->
     </div>
 </div>
 <br>
-<div class="ListaAlumnos">
+<!--<div class="ListaAlumnos">
     <table *ngIf="mostrarAlumnos">
         <tr>
-            <th *ngFor="let encabezado of encabezados" [ngClass]="porArriba ? 'porArriba' : 'porAbajo'" (mouseover)="porArriba = true" (mouseout)="porArriba = false">
+            <th *ngFor="let encabezado of encabezados" [ngClass]="porArriba ? 'porArriba' : 'porAbajo'" (mouseover)="cambiarPorArriba(true)" (mouseout)="cambiarPorArriba(false)">
                 {{encabezado}}
             </th>
         </tr>
-        <tr *ngFor="let alumno of alumnos" [ngClass]="porArriba ? 'porArriba' : 'porAbajo'" (mouseover)="porArriba = true" (mouseout)="porArriba = false">
+        <tr *ngFor="let alumno of alumnos" [ngClass]="porArriba ? 'porArriba' : 'porAbajo'" (mouseover)="cambiarPorArriba(true)" (mouseout)="cambiarPorArriba(false)">
           <td>{{alumno.Nombre}}</td>
           <td>{{alumno.Edad}}</td>
           <td>{{alumno.Ocupacion}}</td>
         </tr>
     </table>
 
+</div>-->
+<div> pepe + {{nombreAlumno}}</div>
+<div class="mat-elevation-z8" *ngIf="mostrarAlumnos">
+    <table mat-table [dataSource]="dataSource">
+
+        <!-- Position Column -->
+        <ng-container *ngFor="let columna of columnas" matColumnDef="{{columna.name}}">
+            <th style="text-align: center; font-weight: bold;border: aliceblue; font-size: 19px;border-bottom: groove;"
+                mat-header-cell *matHeaderCellDef mat-sort-header>{{columna.titulo}}</th>
+            <td style="text-align: center;border: aliceblue;" mat-cell *matCellDef="let element">
+                {{element[columna.name]}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+            <td mat-cell *matCellDef="let element; let i = index">
+                <button mat-icon-button color='primary' (click)="editarAlumnoModal(i)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color='warn' (click)="eliminarAlumno(i)">
+                    <mat-icon aria-hidden="false">delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
 </div>
