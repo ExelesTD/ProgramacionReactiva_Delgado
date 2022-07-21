@@ -1,0 +1,37 @@
+
+<div style="float: left;margin-right: 10px;margin-top: 7px;">
+    <p>Las siguientes peliculas se encuentran disponibles: </p>
+</div>
+<div>
+    <button mat-mini-fab color="primary" *ngIf="!mostrarPelicula" (click)="cambiarMostrarPelicula(true)">
+        <mat-icon>visibility</mat-icon>
+    </button>
+    <button mat-mini-fab color="warn" *ngIf="mostrarPelicula" (click)="cambiarMostrarPelicula(false)">
+        <mat-icon>visibility_off</mat-icon>
+    </button>
+    <!--<button class="btn mat-mini-fab	" *ngIf="!mostrarAlumnos" (click)="cambiarMostrarAlumnos(true)">Mostrar Alumnos</button>
+    <button class="btn mat-mini-fab	" *ngIf="mostrarAlumnos" (click)="cambiarMostrarAlumnos(false)">Ocultar Alumnos</button>-->
+</div>
+
+
+<div class="input-group mb-3" *ngIf="mostrarPelicula">
+    <input (keydown)="recuperarLista()" (keyup)="filtrarPorNombre()" id="nombreAlumno" type="text" class="form-control" placeholder="Ingrese el nombre de la pelicula" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="recuperarLista()">Borrar Filtro</button>
+  </div>
+
+<div class="mat-elevation-z8" *ngIf="mostrarPelicula">
+    <table class="table">
+        <thead class="table-dark">
+        <tr >
+            <th style="text-align: center;" *ngFor="let columna of columnas" scope="col">{{columna.titulo}}</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        <tr style="text-align: center;" *ngFor="let pelicula of peliculas">
+            <td>{{pelicula.title}}</td>
+            <td>{{pelicula.episode_id}}</td>
+            <td>{{pelicula.director}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

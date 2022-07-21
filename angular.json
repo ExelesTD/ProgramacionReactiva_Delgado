@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "1PF+Delgado": {
+    "ProgramacionReactiva_Delgado": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "1PF+Delgado:build:production"
+              "browserTarget": "ProgramacionReactiva_Delgado:build:production"
             },
             "development": {
-              "browserTarget": "1PF+Delgado:build:development"
+              "browserTarget": "ProgramacionReactiva_Delgado:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "1PF+Delgado:build"
+            "browserTarget": "ProgramacionReactiva_Delgado:build"
           }
         },
         "test": {

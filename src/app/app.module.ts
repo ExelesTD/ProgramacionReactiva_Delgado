@@ -14,6 +14,8 @@ import { MaterialModule } from './modulos/material/material.module';
 import { ModalAlumnoComponent } from './componentes/modal-alumno/modal-alumno.component';
 import * as $ from 'jquery';
 import { PruebaServicioComponent } from './componentes/prueba-servicio/prueba-servicio.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ListaDirectoresComponent } from './componentes/lista-directores/lista-directores.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,16 @@ import { PruebaServicioComponent } from './componentes/prueba-servicio/prueba-se
     MiDirectivaDirective,
     FormularioComponent,
     ModalAlumnoComponent,
-    PruebaServicioComponent
+    PruebaServicioComponent,
+    ListaDirectoresComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

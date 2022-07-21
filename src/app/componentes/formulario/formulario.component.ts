@@ -42,17 +42,14 @@ export class FormularioComponent implements OnInit, OnChanges, DoCheck{
   ngDoCheck(): void {
   }
   ngOnChanges(changes: SimpleChanges): void {
-    this.formulario.get('nombre')?.setValue(this.servicioAlumno.nombreAlumno);
-    this.formulario.get('edad')?.setValue(this.servicioAlumno.edadAlumno);
-    this.formulario.get('ocupacion')?.setValue(this.servicioAlumno.ocupacionAlumno);
-    console.log("el nombre: " + this.formulario.get('nombre')?.value)
+ 
   }
 
   public cargarFormulario(){
     this.formulario.get('nombre')?.setValue(this.servicioAlumno.nombreAlumno);
     this.formulario.get('edad')?.setValue(this.servicioAlumno.edadAlumno);
     this.formulario.get('ocupacion')?.setValue(this.servicioAlumno.ocupacionAlumno);
-    console.log("el nombre: " + this.formulario.get('nombre')?.value)
+    
   }
 
   ngOnInit(): void {
@@ -76,20 +73,7 @@ export class FormularioComponent implements OnInit, OnChanges, DoCheck{
         this.comp.cerrarModal();
         this.formulario.reset();
       }      
-    }
-    else{
-      if(this.formulario.get('nombre')?.status == 'INVALID'){
-          console.log("Error en el nombre");
-      };
-      if(this.formulario.get('edad')?.status == 'INVALID'){
-          console.log("Error en la edad");
-      };
-      if(this.formulario.get('ocupacion')?.status == 'INVALID'){
-          console.log("Error en la ocupacion");
-      };
-    }
-    console.log();
-    
+    }   
   }
 
   initFormulario(){
