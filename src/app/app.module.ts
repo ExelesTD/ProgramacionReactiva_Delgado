@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modulos/material/material.module';
 import { ModalAlumnoComponent } from './componentes/modal-alumno/modal-alumno.component';
 import * as $ from 'jquery';
+import { PruebaServicioComponent } from './componentes/prueba-servicio/prueba-servicio.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import * as $ from 'jquery';
     ComponenteListaComponent,
     MiDirectivaDirective,
     FormularioComponent,
-    ModalAlumnoComponent
+    ModalAlumnoComponent,
+    PruebaServicioComponent
   ],
   imports: [
     BrowserModule,

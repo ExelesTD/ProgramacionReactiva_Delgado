@@ -5,9 +5,9 @@
     <div class="alert alert-danger" *ngIf="formulario.get('edad')?.touched && formulario.get('edad')?.status == 'INVALID'">(La edad no puede quedar vacia y debe ser menor a 100)</div>
     <span>Ocupacion: </span><input  class="form-control" type="text" formControlName="ocupacion" [ngClass]="{'bg-danger': formulario.get('ocupacion')?.touched && formulario.get('ocupacion')?.status == 'INVALID' }">
     <div class="alert alert-danger" *ngIf="formulario.get('ocupacion')?.touched && formulario.get('ocupacion')?.status == 'INVALID'">(La ocupacion no puede quedar vacia)</div>-->
-    <mat-form-field class="formularioAlumno-width" appearance="fill">
+    <mat-form-field class="formularioAlumno-width" appearance="fill" >
         <mat-label>Nombre</mat-label>
-        <input type="text" matInput  formControlName="nombre">
+        <input type="text" matInput  formControlName="nombre" (animationstart)="cargarFormulario()">
         <mat-error *ngIf="formulario.get('nombre')?.touched && formulario.controls['nombre'].errors?.['required']">
           El campo es <strong>Obligatorio</strong>
         </mat-error>
